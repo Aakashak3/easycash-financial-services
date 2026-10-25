@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', 'Noto Sans Tamil', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #0f172a;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbar hiding utility for service slider */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Premium traveling outline border for About Us feature cards */
+@keyframes cardOutlineTravel {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.card-border-travel-line {
+  stroke-dasharray: 24 76;
+  stroke-dashoffset: 100;
+  animation: cardOutlineTravel 3.5s linear infinite;
+  opacity: 0.95;
+}
+
+/* ========================================================
+   Hero Main Headline Premium Letter Reveal Animation
+   ======================================================== */
+@keyframes heroLetterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(7px);
+    filter: blur(2px);
+  }
+  60% {
+    opacity: 0.95;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-reveal-letter {
+  display: inline-block;
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  animation-name: heroLetterReveal;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+/* ========================================================
+   Interactive Button Hover Animation System
+   ======================================================== */
+.btn-interactive {
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
+}
+
+.btn-interactive:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-interactive:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-interactive:focus-visible {
+  outline: 2px solid #3cb334;
+  outline-offset: 2px;
+}
+
+/* Call Us buttons: Dark green style, brighter green hover, subtle lift & shadow */
+.btn-call {
+  background-color: #044e29;
+  color: #ffffff !important;
+  border: 1px solid rgba(4, 78, 41, 0.85);
+  box-shadow: 0 2px 5px rgba(4, 78, 41, 0.14);
+}
+.btn-call:hover {
+  background-color: #066e3a;
+  border-color: #066e3a;
+  box-shadow: 0 8px 20px -4px rgba(4, 78, 41, 0.35), 0 2px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.btn-call:active {
+  background-color: #033c20;
+  box-shadow: 0 2px 4px rgba(4, 78, 41, 0.2);
+}
+
+/* WhatsApp buttons: White background, green text & icon -> pale green bg & stronger green border */
+.btn-whatsapp {
+  background-color: #ffffff;
+  color: #15803d !important;
+  border: 1.5px solid rgba(37, 211, 102, 0.45);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+.btn-whatsapp:hover {
+  background-color: #f0fdf4;
+  border-color: #22c55e;
+  color: #166534 !important;
+  box-shadow: 0 8px 20px -4px rgba(34, 197, 94, 0.28), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+}
+.btn-whatsapp:active {
+  background-color: #dcfce7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Primary Action buttons: Prominent dark green with rich hover and depth */
+.btn-primary-action {
+  background-color: #044e29;
+  color: #ffffff !important;
+  border: 1px solid transparent;
+  box-shadow: 0 3px 6px rgba(4, 78, 41, 0.15);
+}
+.btn-primary-action:hover {
+  background-color: #066e3a;
+  box-shadow: 0 10px 22px -5px rgba(4, 78, 41, 0.35), 0 3px 8px -2px rgba(0, 0, 0, 0.08);
+}
+.btn-primary-action:active {
+  background-color: #033c20;
+  box-shadow: 0 2px 4px rgba(4, 78, 41, 0.2);
+}
+
+/* Secondary Action buttons: Refined border transition and gentle background tint */
+.btn-secondary-action {
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.btn-secondary-action:hover {
+  background-color: #f8fafc;
+  border-color: #22c55e;
+  color: #044e29;
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+}
+.btn-secondary-action:active {
+  background-color: #f1f5f9;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Sub-icon movements */
+.btn-icon-shift,
+.btn-icon-arrow {
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.btn-interactive:hover .btn-icon-shift,
+.btn-call:hover .btn-icon-shift,
+.btn-primary-action:hover .btn-icon-shift {
+  transform: rotate(-12deg) scale(1.1);
+}
+
+.btn-whatsapp:hover .btn-icon-shift {
+  transform: scale(1.15);
+}
+
+.btn-interactive:hover .btn-icon-arrow,
+.btn-primary-action:hover .btn-icon-arrow {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card-border-travel-line {
+    animation: none !important;
+    stroke-dasharray: none !important;
+    opacity: 0 !important;
+  }
+  .btn-interactive,
+  .btn-call,
+  .btn-whatsapp,
+  .btn-primary-action,
+  .btn-secondary-action {
+    transform: none !important;
+    transition: none !important;
+  }
+  .btn-icon-shift,
+  .btn-icon-arrow {
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-reveal-letter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .scroll-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

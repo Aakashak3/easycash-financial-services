@@ -1,0 +1,6 @@
+{
+  "name": "EasyCash Financial Services",
+  "description": "We provide trusted financial solutions with personal support, right here in Nagapattinam. Loans, Insurance, and Investments made simpler.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
